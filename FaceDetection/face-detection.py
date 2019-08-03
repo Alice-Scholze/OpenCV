@@ -6,7 +6,15 @@ classifier = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 grayImage = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-detections = classifier.detectMultiScale(grayImage)
+#scaleFactor = scale image appplied
+#minNeighbors = min quantity of rectangles neighbors
+#minZise = min size of the image to be detect. Default size = 30 x 30.
+#maxZise = max size of the image to be detect
+detections = classifier.detectMultiScale(grayImage,
+                                         scaleFactor = 1.09,
+                                         minNeighbors = 5,
+                                         minSize = (30,30),
+                                         maxSize = (40,40))
 
 print(detections)
 print(len(detections))
